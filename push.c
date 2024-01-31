@@ -1,11 +1,12 @@
 #include "monty.h"
 
 
+
 void push(stack_t **stack, unsigned int line_number)
 {
     int value;
     stack_t *new_node = NULL;
-     
+
     if (fscanf(bus.file, "%s", bus.content) != 1 || !isdigit(bus.content[0]))
     {
         fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -23,7 +24,6 @@ void push(stack_t **stack, unsigned int line_number)
         fprintf(stderr, "Error: Memory allocation failed\n");
         fclose(bus.file);
         free(bus.content);
-        
         exit(EXIT_FAILURE);
     }
 
@@ -38,4 +38,3 @@ void push(stack_t **stack, unsigned int line_number)
 
     *stack = new_node;
 }
-

@@ -1,15 +1,19 @@
 #include "monty.h"
 
-
 void process_monty(const char *filename)
 {
     unsigned int line_number = 1;
     size_t i;
 
     instruction_t instruct[] = {
-        {"push", push},
-        {"pall$", pall},
-    };
+    {"push", push},
+    {"pall", pall},
+    {"pint", pint},
+    {"swap", swap},
+    {"nop", nop},
+    {"add", add}, 
+};
+
 
     stack_t *stack = NULL;
     bus.file = fopen(filename, "r");
@@ -48,3 +52,5 @@ void process_monty(const char *filename)
     fclose(bus.file);
     free(bus.content);
 }
+
+
