@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <string.h>
+/*
+// Custom comparison function that ignores specified characters
+int custom_strcmp(const char *s1, const char *s2, char ignore_char) {
+    while (*s1 && *s2) {
+        if (*s1 == ignore_char) {
+            // Ignore specified character in s1
+            s1++;
+            continue;
+        }
+
+        if (*s2 == ignore_char) {
+            // Ignore specified character in s2
+            s2++;
+            continue;
+        }
+
+        if (*s1 != *s2) {
+            return (*s1 - *s2);
+        }
+
+        s1++;
+        s2++;
+    }
+
+    // Continue comparing the remaining characters
+    return (*s1 - *s2);
+}
+
+// Function to remove specified character from a string
+void remove_char(char *str, char char_to_remove) {
+    char *src, *dst;
+    for (src = dst = str; *src != '\0'; src++) {
+        if (*src != char_to_remove) {
+            *dst++ = *src;
+        }
+    }
+    *dst = '\0';
+}
+
+int main() {
+    char *op = "pall$";
+    const char *opcode = "pall";
+
+    // Using the custom comparison function
+    if (custom_strcmp(op, opcode, '$') == 0) {
+        // Remove '$' from the first string (op)
+        remove_char(op, '$');
+        printf("Function names match: %s\n", op);
+        
+        // Now you can execute the function with the modified name (op)
+        // ExecuteFunction(op);
+    } else {
+        printf("Function names do not match!\n");
+    }
+
+    return 0;
+}
+*/
+
+#include <stdio.h>
+#include <string.h>
+
+// Custom comparison function that removes non-matching characters in the first string
+void custom_strmatch(char *s1, const char *s2) {
+    char *src, *dst;
+    for (src = dst = s1; *src != '\0'; src++) {
+        if (strchr(s2, *src) != NULL) {
+            *dst++ = *src;
+        }
+    }
+    *dst = '\0';
+}
+
+int main() {
+    char op[] = "pall$";
+    const char *opcode = "pall";
+
+    // Remove non-matching characters in the first string (op)
+    custom_strmatch(op, opcode);
+
+    // Using the custom comparison function
+    if (strcmp(op, opcode) == 0) {
+        printf("Function names match after modification: %s\n", op);
+        // Now you can execute the function with the modified name (op)
+        // ExecuteFunction(op);
+    } else {
+        printf("Function names do not match!\n");
+    }
+
+    return 0;
+}

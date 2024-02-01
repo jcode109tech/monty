@@ -63,4 +63,7 @@ void multiply(stack_t **stack, unsigned int line_number);
 void modulus(stack_t **stack, unsigned int line_number);
 void print_char(stack_t **stack, unsigned int line_number);
 
+int custom_strmatch(char *s1, const char *s2);
+void execute_instruction(char *opcode, stack_t **stack, unsigned int line_number, instruction_t *instructions, size_t num_instructions);
+
 #endif
