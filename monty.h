@@ -12,7 +12,8 @@
 typedef struct {
     FILE *file;
     char *content;
-    char *arg;     
+    char *arg;  
+    int is_queue;   
 } Bus;
 
 Bus bus;
@@ -62,6 +63,11 @@ void divide(stack_t **stack, unsigned int line_number);
 void multiply(stack_t **stack, unsigned int line_number);
 void modulus(stack_t **stack, unsigned int line_number);
 void print_char(stack_t **stack, unsigned int line_number);
+void set_mode(stack_t **stack, unsigned int line_number, int is_queue);
+void rotate_right(stack_t **stack, unsigned int line_number);
+
+void rotate_left(stack_t **stack, unsigned int line_number);
+void print_string(stack_t **stack, unsigned int line_number);
 
 int custom_strmatch(char *s1, const char *s2);
 void execute_instruction(char *opcode, stack_t **stack, unsigned int line_number, instruction_t *instructions, size_t num_instructions);

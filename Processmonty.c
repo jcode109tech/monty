@@ -6,20 +6,21 @@ void process_monty(const char *filename)
     stack_t *stack = NULL;
 
     instruction_t instruct[] = {
-    {"push", push},
-    {"pall", pall},
-    {"pall$", pall}, /* BUG in code */
-    {"pint", pint},
-    {"swap", swap},
-    {"nop", nop},
-    {"add", add}, 
-    {"sub", sub},
-    {"div", divide},
-    {"mul", multiply},
-    {"mod", modulus},
-    {"pchar", print_char},
-};
-
+        {"push", push},
+        {"pall$", pall},
+        {"pall", pall},
+        {"pint", pint},
+        {"swap", swap},
+        {"nop", nop},
+        {"add", add},
+        {"sub", sub},
+        {"div", divide},
+        {"mul", multiply},
+        {"mod", modulus},
+        {"rotl", rotate_left},
+        {"rotr", rotate_right},  
+         
+    };
 
     bus.file = fopen(filename, "r");
     bus.content = malloc(sizeof
