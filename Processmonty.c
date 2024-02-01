@@ -7,6 +7,7 @@ void process_monty(const char *filename)
 
     instruction_t instruct[] = {
     {"push", push},
+    {"pall$", pall},
     {"pall", pall},
     {"pint", pint},
     {"swap", swap},
